@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jérémy Marszalek, développeur web</title>
+  <link rel="icon" href="Screenshot 2023-11-16 at 14.09.08.png" type="image/x-icon">
+  <link rel="shortcut icon" href="Screenshot 2023-11-16 at 14.09.08.png" type="image/x-icon">
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+		rel="stylesheet">
+
+<style>
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.7rem;
+      padding: 0 60px;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.363);
+      line-height: 70px;
+    font-weight: bold;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    color: #F9F6EE;
+      max-width: 1800px;
+      margin: 0 auto;
+      width: 100%;
+      /* background-color: red; */
+  }
+  nav p {
+    /* width: 40%; */
+      margin-right: auto;
+  }
+  .nav-menu {
+    font-size: 1.4rem;
+      /* background-color: orange; */
+      gap: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  header a {
+    text-decoration: none;
+	color: black;
+  }
+  nav ul li {
+    list-style: none;
+  }
+  
+  /* menu responsive on smaller screen */
+  nav ul {
+    height: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+	
+  }
+  nav li a {
+    display: block;
+    text-decoration: none;
+	color: black;
+    padding: 10px 1rem;
+  }
+  nav li:hover {
+      background-color: var(--blue-accent);
+  }
+
+  .dropdown {
+    display: none;
+  }
+  
+
+  #projects > div {
+	margin: 50px 0;
+}
+#projects .text-heading {
+	margin-top: 50px;
+}
+#projects > div:nth-child(odd) div.flex-half {
+	text-align: right;
+}
+#projects > div:nth-child(odd) div.project-btns {
+	justify-content: end;
+}
+
+.project-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+	margin-top: 24px;
+}
+.project-btns a {
+  text-decoration: none;
+  padding: 18px 44px;
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+	border: 1px solid var(--secondary-color);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: 0.2s;
+}
+.project-btns a:nth-child(2) {
+	background-color: var(--main-color);
+	color: var(--secondary-color);
+	border: 1px solid var(--secondary-color);
+}
+.project-btns a:hover {
+  background-color: var(--blue-accent);
+}
+.project-btns a:nth-child(2):hover {
+	color: var(--main-color);
+}
+
+.project-text {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+.project-text p:first-child {
+	font-weight: 500;
+	font-size: 1.8rem;
+}
+.project-text .description {
+	color: var(--light-gray);
+	font-weight: 400;
+}
+#projects .tech-stack {
+	color: var(--light-gray);
+	font-weight: 400;
+}
+
+#projects .proj-img-container {
+  width: 100%;
+	min-height: 200px;
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+	/* background-color: lightblue; */
+	border-radius: 15px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.2s;
+  border: 1px solid rgba(0, 0, 0, 0.46)
+
+}
+#projects .proj-img-container:hover {
+  opacity: 0.85;
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+}
+#projects img {
+	height: 115%;
+  object-fit: cover;
+  object-position: center;
+	position: absolute;
+  top: -6%;
+	left: -32%;
+	border-radius: 15px;
+}
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+:root {
+  --main-color: #ffffff;
+  --secondary-color: #000000;
+  /* --main-color: rgba(255, 255, 255, 0.87); */
+  /* --secondary-color: #242424; */
+  --light-gray: #717171;
+  --blue-accent: #2275c1;
+  /* --project-accent: #e4872a; */
+}
+
+.dark-theme {
+  --main-color: #121212;
+  --secondary-color: #f9f6ee;
+}
+.bg-test {
+  background-color: antiquewhite;
+}
+/* html,
+body {
+  overflow-x: hidden;
+} */
+
+/* general css */
+body {
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  font-family: Roboto, monospace, sans-serif, Arial;
+  transition: 0.2s;
+  font-size: 1.25rem;
+}
+.portfolio-container {
+  width: 100%;
+  min-width: 380px;
+  margin: 0 auto;
+  background-color: transparent;
+}
+section {
+  width: 85%;
+  max-width: 1800px;
+  margin: 100px auto;
+}
+
+.text-heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.blue-text {
+  color: var(--blue-accent);
+}
+.lightgray-text {
+  color: var(--light-gray);
+  font-size:larger;
+}
+
+.lightgray-text-white {
+  color: white;
+  font-size: x-large;
+}
+.portrait {
+  margin-left: 20%;
+  border-radius: 100%;
+}
+em {
+  text-decoration: underline;
+}
+
+a {
+  color: inherit;
+}
+a.anchor {
+  display: block;
+  position: relative;
+  top: -10vh;
+  visibility: hidden;
+}
+
+.flex-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 125px;
+}
+.flex-2 {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 125px;
+}
+.flex-half {
+  flex: 1;
+  /* background-color: lightblue; */
+}
+
+/* landing front page */
+#landing-front {
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 100px;
+  /* background-color: lightblue; */
+  gap: 80px;
+  margin: 120px auto;
+}
+#landing-front .landing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+	padding-right: 60px;
+}
+.landing-title {
+  font-size: 3rem;
+  font-weight: 500;
+}
+#landing-front .landing-img-wrapper {
+width: 44%;
+}
+#landing-front img {
+  /* background-color: orange; */
+  width: 100%;
+}
+
+/* about section */
+#about {
+  padding: 150px 100px;
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+}
+#about .flex-1 {
+  max-width: 1800px;
+  width: 90%;
+  margin: 0 auto;
+}
+#about .about-story {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+/* contact section */
+#contact {
+  max-width: 1400px;
+}
+#contact .contact-message {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.mail-link {
+  padding: 0 5px 0 2px;
+  transition: all 0.2s;
+}
+.mail-link:hover {
+  background-color: var(--blue-accent);
+  color: var(--main-color);
+  opacity: 0.8;
+}
+
+
+.contact-socials  {
+  transition: all 0.2s;
+}
+.contact-socials i:hover {
+  transform: translate(3px, -5px);
+  color: var(--blue-accent);
+  box-shadow: -3px 5px 5px 1px rgba(128, 128, 128, 0.63);
+}
+
+#contact form {
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #a6a6a6;
+  border-radius: 15px;
+  max-width: 550px;
+  min-width: 300px;
+  width: 60%;
+  padding: 50px 40px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#contact form label {
+  color: #181818;
+}
+form input,
+form textarea {
+  padding: 16px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1.5px solid #dadada;
+  background-color: #fcfcfc;
+}
+#name {
+  background: url(/project-imgages/contact-name.svg) no-repeat;
+  background-position: 10px center;
+  padding-left: 40px;
+  background-color: #fcfcfc;
+}
+#email {
+  background: url(/project-imgages/contact-email.svg) no-repeat;
+  background-position: 10px center;
+  padding-left: 40px;
+  background-color: #fcfcfc;
+}
+#message {
+  font-size: 1.05rem;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fcfcfc inset !important;
+}
+
+form button {
+  height: 64px;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  color: var(--main-color);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  transition: 0.2s;
+}
+form button:hover {
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+}
+
+@media (max-width: 850px) {
+  #contact {
+    flex-direction: column;
+  }
+  #contact form {
+    margin: auto;
+  }
+}
+
+/* footer section */
+footer {
+  text-align: center;
+  margin-top: 10rem;
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* responsive design section below */
+@media only screen and (max-width: 1921px) and (min-width: 1282px) {
+	body {
+		font-size: 1.125rem;
+	}
+	header {
+		padding: 0;
+	}
+  nav {
+    max-width: 1400px;
+		padding: 0 60px;
+  }
+  .text-heading {
+    font-size: 1.8rem;
+  }
+  section {
+    margin: 0px auto;
+		width: 100%;
+		padding: 0 60px;
+    max-width: 1400px;
+  }
+  #landing-front {
+    gap: 60px;
+    padding: 0 60px;
+  }
+  .landing-title {
+    font-size: 2.8rem;
+  }
+  #projects .proj-img-container {
+    height: 430px;
+  }
+  .project-text p:first-child {
+    font-weight: 500;
+    font-size: 1.7rem;
+  }
+	#about {
+		padding: 150px 60px;
+		background-color: var(--secondary-color);
+		color: var(--main-color);
+	}
+  #about .flex-1 {
+    max-width: 1400px;
+		width: 100%;
+  }
+  .skills-logos i {
+    font-size: 2.3rem;
+  }
+  #about .skills-logos p {
+    font-size: 0.9rem;
+  }
+  .contact-socials i {
+    font-size: 2.3rem;
+  }
+}
+
+@media only screen and (max-width: 1281px) {
+  body {
+    font-size: 1.15rem;
+  }
+  .text-heading {
+    font-size: 1.8rem;
+  }
+  section {
+    width: 90%;
+    margin: 60px auto;
+  }
+  .flex-1 {
+    gap: 60px;
+  }
+  .flex-2 {
+    gap: 60px;
+  }
+  #landing-front {
+    width: 100%;
+    padding: 0 60px;
+    gap: 60px;
+    margin: 80 auto;
+  }
+  .landing-title {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+  #projects .proj-img-container {
+    height: 400px;
+  }
+  .project-text p:first-child {
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+  #about {
+    padding: 100px 60px;
+  }
+  .contact-socials i {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  body {
+    font-size: 1rem;
+  }
+  .text-heading {
+    font-size: 1.7rem;
+  }
+  section {
+    width: 90%;
+    margin: 50px auto;
+  }
+  .flex-1 {
+    gap: 50px;
+  }
+  .flex-2 {
+    gap: 50px;
+  }
+  #landing-front {
+    width: 100%;
+    padding: 0 60px;
+    gap: 60px;
+    margin: 80 auto;
+  }
+	#landing-front .landing-info {
+    padding-right: 0;
+  }
+  .landing-title {
+    font-size: 2rem;
+  }
+  #landing-front .landing-img-wrapper {
+    width: 50%;
+  }
+  #projects > div {
+    margin: 50px 0;
+  }
+  #projects .text-heading {
+    margin-top: 10px;
+  }
+  #projects .proj-img-container {
+    height: 300px;
+  }
+  .project-text p:first-child {
+    font-size: 1.6rem;
+  }
+  .project-btns {
+    gap: 28px;
+    margin-top: 24px;
+  }
+  .project-btns a {
+    padding: 16px 34px;
+  }
+  #about {
+    padding: 100px 60px;
+  }
+  #about .about-story {
+    gap: 20px;
+  }
+  .skills-logos {
+    gap: 70px;
+  }
+  .skills-logos i {
+    font-size: 2.2rem;
+  }
+  #about .skills-logos p {
+    font-size: 1rem;
+  }
+  .contact-socials i {
+    font-size: 2rem;
+  }
+  #contact .contact-message {
+    gap: 20px;
+  }
+  #contact form {
+    width: 60%;
+    padding: 50px 40px;
+    margin-top: 30px;
+    gap: 5px;
+  }
+  form input,
+  form textarea {
+    padding: 14px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+  }
+  #message {
+    font-size: 1rem;
+  }
+  form button {
+    height: 45px;
+    font-size: 1.05rem;
+  }
+}
+
+@media only screen and (max-width: 796px) {
+  header {
+    padding: 0;
+  }
+  nav {
+    width: 88%;
+  }
+  
+  body {
+    font-size: 1.2rem;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+
+  .navbar {
+display: flex; 
+justify-content: space-between;
+}
+
+  .dropbtn {
+    display: flex;
+  background-color: white;
+  color: black;
+  padding: 4px;
+  font-family: 'Antique Cable', sans-serif;
+
+  border-color: black;
+  cursor: pointer;
+}
+
+.menuimg {
+    width: 64px;
+    height: 16px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
+}
+
+  section {
+    margin: 50px auto;
+  }
+  .flex-1 {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .flex-2 {
+    flex-direction: column;
+    gap: 40px;
+  }
+  #landing-front {
+    gap: 40px;
+    margin: 80px auto;
+  }
+  .landing-title {
+    font-size: 2.5rem;
+  }
+  #landing-front .landing-img-wrapper {
+    width: 70%;
+  }
+  #projects > div:nth-child(odd) div.flex-half {
+    text-align: left;
+  }
+  #projects > div:nth-child(odd) div.project-btns {
+    justify-content: start;
+  }
+  #projects .proj-img-container {
+    min-height: 400px;
+  }
+  .project-text {
+    gap: 15px;
+  }
+  .project-text p:first-child {
+    font-size: 1.4rem;
+  }
+  .project-btns {
+    gap: 28px;
+    margin-top: 15px;
+  }
+  .project-btns a {
+    padding: 14px 30px;
+  }
+  #about {
+    padding: 100px 60px;
+  }
+  #about .flex-1 {
+    width: 100%;
+  }
+  .skills-logos {
+    gap: 60px;
+  }
+  #contact form {
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  form input,
+  form textarea {
+    padding: 16px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  #message {
+    font-size: 1.05rem;
+  }
+  form button {
+    height: 60px;
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  header {
+    font-size: 1.4rem;
+    padding: 0;
+    line-height: 60px;
+  }
+  .nav-menu {
+    font-size: 1.1rem;
+    gap: 0px;
+  }
+  body {
+    font-size: 0.9rem;
+  }
+  .text-heading {
+    font-size: 1.4rem;
+  }
+  section {
+    margin: 25px auto;
+  }
+  .flex-1 {
+    gap: 30px;
+  }
+  .flex-2 {
+    gap: 30px;
+  }
+  #landing-front {
+    padding: 0 20px;
+    gap: 30px;
+    margin: 40px auto;
+  }
+  #landing-front .landing-info {
+    gap: 18px;
+  }
+  .landing-title {
+    font-size: 1.6rem;
+  }
+  #projects > div {
+    margin: 30px 0;
+  }
+  #projects .proj-img-container {
+    min-height: 250px;
+  }
+  .project-text {
+    gap: 15px;
+  }
+  .project-text p:first-child {
+    font-size: 1.2rem;
+  }
+  .project-btns {
+    gap: 28px;
+    margin-top: 15px;
+  }
+  .project-btns a {
+    padding: 10px 24px;
+  }
+  #about {
+    padding: 60px 25px;
+  }
+  #about .about-story {
+    gap: 20px;
+  }
+  .skills-logos {
+    gap: 40px;
+  }
+  .skills-logos i {
+    font-size: 1.7rem;
+  }
+  #about .skills-logos p {
+    font-size: 0.8rem;
+  }
+  #contact .contact-message {
+    gap: 16px;
+  }
+  #contact form {
+    width: 100%;
+    padding: 40px 30px;
+    gap: 10px;
+  }
+  form input,
+  form textarea {
+    padding: 16px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+  #message {
+    font-size: 0.95rem;
+  }
+  form button {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/* for debugging */
+/* * {
+	background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
+
+</style>
+
+</head>
+
+<body>
+	<div class="portfolio-container">
+		<header>
+			<nav class="navbar">
+				<p><a href="#landing-front">Jérémy Marszalek</a></p>
+				<ul class="nav-menu">
+					<li><a href="#projects-anchor">Mes projets</a></li>
+					<li><a href="#about-anchor">À propos</a></li>
+					<li><a href="#contact-anchor">Contact</a></li>
+				</ul>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <img class="menuimg" src="menu-svgrepo-com.svg" alt="menu"/>
+          </button>
+          <div class="dropdown-content">
+            <a href="#projects-anchor">Mes projets</a>
+					  <a href="#about-anchor">À propos</a>
+					  <a href="#contact-anchor">Contact</a>
+          </div>
+        </div>
+			</nav>
+		</header>
+
+		<main>
+			<section id="landing-front" class="flex-1">
+				<div class="flex-half landing-info">
+					<h1 class="landing-title">Je réalise votre site internet sur mesure</h1>
+					<h3 class="">Bonjour, moi c'est <span class="blue-text">&#60;&#47;Jérémy&gt;</span>, développeur web freelance !</h3>
+					<p class="lightgray-text">Je réalise votre <em>"landing page"</em> (une page simple ou encore site "one page"), un format de site idéal pour faire connaitre vos commerces et services, ainsi que votre <em>site multi-pages</em>, qui vous permettra ainsi d'atteindre un maximum d'audience 
+            grâce à un <em>site responsive</em> qui s'adapte à tous les écrans (ordinateurs, tablettes, mobiles) et à <em>l'optimisation de son référencement</em> par les moteurs de recherche tels que Google.
+                    </p>
+					<div class="contact-socials">
+						<a href="https://www.linkedin.com/in/jeremy-m/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
+                            <path fill="#0288D1" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path><path fill="#FFF" d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"></path>
+                        </svg></a>
+                        <a href="https://github.com/marszalekj" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 100 100">
+                            <path fill="#6693c1" d="M71,82H29c-6.075,0-11-4.925-11-11V29c0-6.075,4.925-11,11-11h42c6.075,0,11,4.925,11,11v42	C82,77.075,77.075,82,71,82z"></path><path fill="#eeecd9" d="M69.933,49.039c0-3.321-1.305-6.334-3.419-8.573c0.396-2.203,0.351-5.301-0.538-7.966	c-4.475,0-8.114,3.447-8.702,4H44.47c-0.589-0.552-4.019-4-8.494-4c-0.8,2.401-1.087,5.233-0.846,7.295	c-2.518,2.286-4.108,5.575-4.108,9.245c0,6.908,5.599,12.459,12.507,12.459h2.447c-2.003,0.917-3.635,2.756-4,5	c-2,0-4.864-0.182-6.181-2.158c-2.46-3.69-3.59-3.69-4.819-3.69c-1.23,0-1.33,1.23-0.1,2.46c1.23,1.23,1.23,1.23,2.46,3.69	c1.012,2.027,3.64,3.699,8.64,3.699v6h17v-8.845c0-2.718-1.681-5.092-4-6.155h2.449C64.334,61.5,69.933,55.947,69.933,49.039z"></path><path fill="#1f212b" d="M58.976,77c-0.276,0-0.5-0.224-0.5-0.5v-8.845c0-2.431-1.456-4.668-3.708-5.701	c-0.214-0.098-0.331-0.332-0.28-0.561C54.538,61.164,54.741,61,54.976,61h2.449c6.621,0,12.008-5.366,12.008-11.961	c0-3.064-1.166-5.987-3.282-8.229c-0.109-0.115-0.157-0.275-0.129-0.432c0.333-1.854,0.39-4.725-0.409-7.37	c-3.682,0.162-6.795,2.725-7.987,3.848C57.533,36.943,57.401,37,57.274,37H44.469c-0.127,0-0.249-0.048-0.342-0.135l-0.092-0.087	c-3.078-2.927-5.829-3.686-7.697-3.77c-0.662,2.162-0.941,4.762-0.712,6.729c0.019,0.16-0.042,0.319-0.161,0.428	c-2.506,2.275-3.943,5.51-3.943,8.875c0,6.595,5.387,11.96,12.007,11.96h2.447c0.235,0,0.438,0.164,0.488,0.394	c0.051,0.229-0.066,0.463-0.28,0.561c-1.974,0.904-3.397,2.676-3.715,4.625C42.43,66.822,42.221,67,41.976,67	c-2.333,0-5.191-0.271-6.598-2.38c-2.311-3.467-3.28-3.467-4.403-3.467c-0.14,0-0.385,0.023-0.448,0.178	c-0.086,0.206,0.031,0.756,0.702,1.428c1.287,1.287,1.311,1.335,2.554,3.82C34.885,68.785,37.795,70,41.976,70	c0.276,0,0.5,0.224,0.5,0.5v6c0,0.276-0.224,0.5-0.5,0.5s-0.5-0.224-0.5-0.5v-5.505c-5.797-0.131-7.866-2.525-8.588-3.969	c-1.194-2.387-1.194-2.387-2.366-3.56c-0.869-0.869-1.213-1.81-0.919-2.518c0.209-0.505,0.709-0.795,1.372-0.795	c1.588,0,2.81,0.272,5.235,3.912c1.069,1.604,3.359,1.9,5.356,1.932c0.362-1.545,1.309-2.965,2.63-3.997h-0.668	c-7.172,0-13.007-5.813-13.007-12.959c0-3.562,1.485-6.988,4.084-9.442c-0.209-2.203,0.128-4.956,0.896-7.257	C35.57,32.138,35.761,32,35.976,32c2.036,0,5.192,0.696,8.692,4h12.409c1.427-1.311,4.847-4,8.898-4	c0.215,0,0.406,0.138,0.475,0.342c0.935,2.802,0.928,5.901,0.598,7.965c2.185,2.404,3.385,5.495,3.385,8.732	C70.433,56.186,64.598,62,57.425,62h-0.693c1.707,1.368,2.744,3.442,2.744,5.655V76.5C59.476,76.776,59.252,77,58.976,77z"></path><path fill="#1f212b" d="M65.5,77h-31C28.159,77,23,71.841,23,65.5v-31C23,28.159,28.159,23,34.5,23h31	c0.276,0,0.5,0.224,0.5,0.5S65.776,24,65.5,24h-31C28.71,24,24,28.71,24,34.5v31C24,71.29,28.71,76,34.5,76h31	C71.29,76,76,71.29,76,65.5v-15c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5v15C77,71.841,71.841,77,65.5,77z"></path><path fill="#1f212b" d="M76.5,48.5c-0.276,0-0.5-0.224-0.5-0.5v-6.5c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5V48	C77,48.276,76.776,48.5,76.5,48.5z"></path><path fill="#1f212b" d="M76.5,38.5c-0.276,0-0.5-0.224-0.5-0.5v-3.5c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5V38	C77,38.276,76.776,38.5,76.5,38.5z"></path><path fill="#1f212b" d="M71,83H29c-6.617,0-12-5.383-12-12V29c0-6.617,5.383-12,12-12h42c6.617,0,12,5.383,12,12v42	C83,77.617,77.617,83,71,83z M29,19c-5.514,0-10,4.486-10,10v42c0,5.514,4.486,10,10,10h42c5.514,0,10-4.486,10-10V29	c0-5.514-4.486-10-10-10H29z"></path>
+                        </svg></a>
+					</div>
+				</div>
+				<div class="landing-img-wrapper">
+					<img src="pngtree-one-line-drawing-vector-of-two-person-working-in-the-office-png-image_316333.jpg" alt="landing logo of person">
+				</div>
+			</section>
+
+			<a class="anchor" id="projects-anchor"></a>
+			<section id="projects">
+				<p class="text-heading blue-text">Mes projets
+          
+        </p>
+
+				<div id="ecom" class="flex-1">
+					<a class="proj-img-container flex-half"
+						href="https://tintoallday.com" target="_blank" rel="noopener noreferrer">
+						<img src="tinto.png" alt="">
+					</a>
+					<div class="flex-half">
+						<div class="project-text">
+							<p>Site du restaurant Tinto All Day</p>
+							<p class="description">Une landing page réalisée pour le restaurant Tinto All Day à Anglet.</p>
+						</div>
+						<div class="project-btns">
+							<a href="https://tintoallday.com" target="_blank" rel="noopener noreferrer">
+								Visitez le site
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div id="my-anime-app" class="flex-2">
+					<a class="proj-img-container flex-half" href="https://marszalekj.github.io/landing-hisutu/"
+						target="_blank" rel="noopener noreferrer">
+						<img src="hisutu.png" alt="">
+					</a>
+					<div class="flex-half">
+						<div class="project-text">
+							<p>Site de la start up Hisutu</p>
+							<p class="description">Une landing page réalisée pour la start up américaine Hisutu</p>
+
+						</div>
+						<div class="project-btns">
+							<a href="https://marszalekj.github.io/landing-hisutu/" target="_blank" rel="noopener noreferrer">
+								Visitez le site
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div id="recipe" class="flex-1">
+					<a class="proj-img-container flex-half" href="https://marszalekj.github.io/P7/"
+						target="_blank" rel="noopener noreferrer">
+						<img src="kasa.png" alt="">
+					</a>
+					<div class="flex-half">
+						<div class="project-text">
+							<p>Site immobilier</p>
+							<p class="description">Un site multi-pages de location de logements.</p>
+						</div>
+						<div class="project-btns">
+							<a href="https://marszalekj.github.io/P7/" target="_blank" rel="noopener noreferrer">
+								Visitez le site
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div id="portfolio" class="flex-2">
+					<a class="proj-img-container flex-half" href="https://marszalekj.github.io/Projet_3_Marszalek_Jeremy/"
+          target="_blank" rel="noopener noreferrer">
+						<img src="food.png" alt="">
+					</a>
+					<div class="flex-half">
+						<div class="project-text">
+							<p>Site de réservation de restaurant</p>
+							<p class="description">Un site multi-pages pour réserver votre restaurant</p>
+						</div>
+						<div class="project-btns">
+							<a href="https://marszalekj.github.io/Projet_3_Marszalek_Jeremy/" target="_blank" rel="noopener noreferrer">
+								Visitez le site
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+			<a class="anchor" id="about-anchor"></a>
+			<div id="about">
+				<div class="flex-1">
+					<div class="flex-half about-story">
+						<p class="text-heading blue-text">À propos</p>
+						<p class="lightgray-text-white">En tant que développeur web passionné, je suis déterminé à aider les commerçants, restaurateurs, start up et artistes à prospérer dans le monde numérique. Mon objectif est de créer des sites web uniques et fonctionnels qui captivent votre audience, renforcent votre présence en ligne et stimulent votre activité.
+            </p>
+					</div>
+					<div class="flex-half">
+            <img class="portrait" src="portraitsite.png"
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<a class="anchor" id="contact-anchor"></a>
+			<section id="contact" class="flex-1">
+				<div class="contact-message flex-half">
+					<p class="text-heading blue-text">Contact</p>
+					<p class="text-heading">Travaillons ensemble !</p>
+					<p class="lightgray-text">Des questions ? Besoin de renseignements ? </p>
+					<p class="lightgray-text"><a class="mail-link"
+							href="mailto:marszadev@gmail.com">Envoyez-moi un email</a> ou consultez mes profils !</p>
+					<div class="contact-socials">
+						<a href="https://www.linkedin.com/in/jeremy-m/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
+                            <path fill="#0288D1" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path><path fill="#FFF" d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"></path>
+                        </svg></a>						<a href="https://www.linkedin.com/in/dac-nguyen-734940185" target="_blank"><i
+								class="fa-brands fa-linkedin"></i></a>
+								<a href="https://github.com/marszalekj" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 100 100">
+									<path fill="#6693c1" d="M71,82H29c-6.075,0-11-4.925-11-11V29c0-6.075,4.925-11,11-11h42c6.075,0,11,4.925,11,11v42	C82,77.075,77.075,82,71,82z"></path><path fill="#eeecd9" d="M69.933,49.039c0-3.321-1.305-6.334-3.419-8.573c0.396-2.203,0.351-5.301-0.538-7.966	c-4.475,0-8.114,3.447-8.702,4H44.47c-0.589-0.552-4.019-4-8.494-4c-0.8,2.401-1.087,5.233-0.846,7.295	c-2.518,2.286-4.108,5.575-4.108,9.245c0,6.908,5.599,12.459,12.507,12.459h2.447c-2.003,0.917-3.635,2.756-4,5	c-2,0-4.864-0.182-6.181-2.158c-2.46-3.69-3.59-3.69-4.819-3.69c-1.23,0-1.33,1.23-0.1,2.46c1.23,1.23,1.23,1.23,2.46,3.69	c1.012,2.027,3.64,3.699,8.64,3.699v6h17v-8.845c0-2.718-1.681-5.092-4-6.155h2.449C64.334,61.5,69.933,55.947,69.933,49.039z"></path><path fill="#1f212b" d="M58.976,77c-0.276,0-0.5-0.224-0.5-0.5v-8.845c0-2.431-1.456-4.668-3.708-5.701	c-0.214-0.098-0.331-0.332-0.28-0.561C54.538,61.164,54.741,61,54.976,61h2.449c6.621,0,12.008-5.366,12.008-11.961	c0-3.064-1.166-5.987-3.282-8.229c-0.109-0.115-0.157-0.275-0.129-0.432c0.333-1.854,0.39-4.725-0.409-7.37	c-3.682,0.162-6.795,2.725-7.987,3.848C57.533,36.943,57.401,37,57.274,37H44.469c-0.127,0-0.249-0.048-0.342-0.135l-0.092-0.087	c-3.078-2.927-5.829-3.686-7.697-3.77c-0.662,2.162-0.941,4.762-0.712,6.729c0.019,0.16-0.042,0.319-0.161,0.428	c-2.506,2.275-3.943,5.51-3.943,8.875c0,6.595,5.387,11.96,12.007,11.96h2.447c0.235,0,0.438,0.164,0.488,0.394	c0.051,0.229-0.066,0.463-0.28,0.561c-1.974,0.904-3.397,2.676-3.715,4.625C42.43,66.822,42.221,67,41.976,67	c-2.333,0-5.191-0.271-6.598-2.38c-2.311-3.467-3.28-3.467-4.403-3.467c-0.14,0-0.385,0.023-0.448,0.178	c-0.086,0.206,0.031,0.756,0.702,1.428c1.287,1.287,1.311,1.335,2.554,3.82C34.885,68.785,37.795,70,41.976,70	c0.276,0,0.5,0.224,0.5,0.5v6c0,0.276-0.224,0.5-0.5,0.5s-0.5-0.224-0.5-0.5v-5.505c-5.797-0.131-7.866-2.525-8.588-3.969	c-1.194-2.387-1.194-2.387-2.366-3.56c-0.869-0.869-1.213-1.81-0.919-2.518c0.209-0.505,0.709-0.795,1.372-0.795	c1.588,0,2.81,0.272,5.235,3.912c1.069,1.604,3.359,1.9,5.356,1.932c0.362-1.545,1.309-2.965,2.63-3.997h-0.668	c-7.172,0-13.007-5.813-13.007-12.959c0-3.562,1.485-6.988,4.084-9.442c-0.209-2.203,0.128-4.956,0.896-7.257	C35.57,32.138,35.761,32,35.976,32c2.036,0,5.192,0.696,8.692,4h12.409c1.427-1.311,4.847-4,8.898-4	c0.215,0,0.406,0.138,0.475,0.342c0.935,2.802,0.928,5.901,0.598,7.965c2.185,2.404,3.385,5.495,3.385,8.732	C70.433,56.186,64.598,62,57.425,62h-0.693c1.707,1.368,2.744,3.442,2.744,5.655V76.5C59.476,76.776,59.252,77,58.976,77z"></path><path fill="#1f212b" d="M65.5,77h-31C28.159,77,23,71.841,23,65.5v-31C23,28.159,28.159,23,34.5,23h31	c0.276,0,0.5,0.224,0.5,0.5S65.776,24,65.5,24h-31C28.71,24,24,28.71,24,34.5v31C24,71.29,28.71,76,34.5,76h31	C71.29,76,76,71.29,76,65.5v-15c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5v15C77,71.841,71.841,77,65.5,77z"></path><path fill="#1f212b" d="M76.5,48.5c-0.276,0-0.5-0.224-0.5-0.5v-6.5c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5V48	C77,48.276,76.776,48.5,76.5,48.5z"></path><path fill="#1f212b" d="M76.5,38.5c-0.276,0-0.5-0.224-0.5-0.5v-3.5c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5V38	C77,38.276,76.776,38.5,76.5,38.5z"></path><path fill="#1f212b" d="M71,83H29c-6.617,0-12-5.383-12-12V29c0-6.617,5.383-12,12-12h42c6.617,0,12,5.383,12,12v42	C83,77.617,77.617,83,71,83z M29,19c-5.514,0-10,4.486-10,10v42c0,5.514,4.486,10,10,10h42c5.514,0,10-4.486,10-10V29	c0-5.514-4.486-10-10-10H29z"></path>
+								</svg></a>					</div>
+                <p class="lightgray-text">À très vite ! </p>
+
+				</div>
+
+				<form class="flex-half" action="https://formsubmit.co/marszadev@gmail.com" method="POST"
+					target="_blank">
+					<label for="name">Nom / Entreprise</label>
+					<input type="text" id="name" name="name" placeholder="Votre nom ou entreprise" required>
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" placeholder="Où puis-je vous répondre ?" required>
+					<label for="message">Message</label>
+					<textarea id="message" name="body" id="" cols="30" rows="5" placeholder="Dites m'en plus :)"
+						required></textarea>
+					<button type="submit">Envoyer</button>
+				</form>
+			</section>
+		</main>
+
+		<!-- <hr> -->
+		<footer>
+			<p>&copy 2023 Jérémy MARSZALEK</p>
+		</footer>
+	</div>
+</body>
+
+</html>
